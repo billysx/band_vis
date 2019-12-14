@@ -1,0 +1,23 @@
+.info{
+	width:400px;
+	height:20px;
+	padding:20px;
+	background-color: darkgrey;
+}
+.introduction{
+	float:left;
+	width:400px;
+	height:110px;
+	padding:20px;
+	background-color: lightgrey;
+}
+.adjust{
+	width:400px;
+	height:450px;
+	padding:20px 20px 0px 20px;
+	background-color: lightgrey;
+	opacity:
+}
+#svg5{
+	background-color: darkgray;
+}

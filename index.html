@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>
+			Homework2
+		</title>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+		<script type="text/javascript" src="js/lib/jquery/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="js/lib/d3/d3-v5.12.0/d3.min.js"></script>
+		<script type="text/javascript" src="js/lib/d3/d3-tip.js"></script>
+		
+		
+		<link rel="stylesheet" type="text/css" href="css/input_range.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mycss.css"/>
+	</head>
+	
+	
+	
+	<body>
+		<center>
+			<h1 style="background-color: #000033;color: #C0C0C0;">爵士乐队 网络</h1>
+		</center>
+
+		<div style="float:left;height:800px;">
+			<div class="adjust">				
+				<p>
+					力学模型: ( Fructerman and Rheingold [1991] )
+				</p>
+				
+				<p>
+					\(F=-\alpha\sum_{j\subset V}\frac{k^2}{d(i,j)}+\beta\sum_{j\subset E(i,j)}\frac{d^2(i,j)}{k}\)
+				</p>
+
+				<p>
+					其中 &nbsp;&nbsp;&nbsp;&nbsp;\(k =\)c\(\sqrt{\frac{A}{n}}\),
+					\(A\)为整体区域面积，
+					\(n\)为顶点个数
+				</p>
+				<center>
+					<p>
+						\(\sum_{j\subset E(i,j)}\frac{d^2(i,j)}{k}\) 为两点间引力，\(\alpha\)为其系数
+					</p>
+					<p>
+						\(-\sum_{j\subset V}\frac{k^2}{d(i,j)}\) 为两点间斥力，\(\beta\)为其系数
+					</p>	
+					
+				</center>
+				
+				
+				<!-- adjust k -->
+				<p style="margin:0">
+				    调整\(c\) : 0
+				    <input id="k-value" type="range" min="0" max="100" value="75" oninput="change_k();"/>
+					1
+				</p>
+				<div id="show" style="width:40px;">
+					<svg></svg>
+				</div>
+				
+				<script type="text/javascript" src="js/k_adapt.js"></script>		
+				
+				
+				<!-- adjust alpha -->
+				<p style="margin:0">
+				    调整\(\alpha\) : 0
+				    <input id="alpha-value" type="range" min="0" max="200" value="100" oninput="change_alpha();"/>
+					2
+				</p>
+				<div id="show2" style="width:40px;">
+					<svg></svg>
+				</div>
+				
+				<script type="text/javascript" src = "js/alpha_adapt.js"></script>
+
+				
+				
+				
+				<!-- adjust beta -->
+				<p style="margin:0">
+				    调整\(\beta\) : 0
+				    <input id="beta-value" type="range" min="0" max="200" value="100" oninput="change_beta();"/>
+					2
+				</p>
+				<div id="show3" style="width:40px;">
+					<svg></svg>
+				</div>
+				
+				<script type="text/javascript" src="js/beta_adapt.js"></script>
+				
+			</div>
+
+			<div class="info">
+				显示选中的点的信息
+			</div>
+			<div class="introduction">
+				这个数据记录了爵士乐队的网络。
+				数据包括了1912年至1940年之间演出的198个乐队，
+				其中大多数乐队都是在20世纪20年代演出的。
+				每个顶点对应一个乐队，如果两个乐队至少有一个共同的音乐家，
+				则两个乐队之间将建立链接
+				<br>
+				顶点颜色越深，度数越高
+			</div>
+        </div>
+
+		<center><div class="svg" style="background-color: darkgray" >
+			<svg height="630" width="700" id ="svg5" style="background-color: darkgray;">
+				<div style="background-color: darkgray;height:45px">
+					数据来源:
+					<a href="http://moreno.ss.uci.edu/data.html#jazz">GLEISER,DANON--COLLABORATION IN JAZZ</a>
+				</div>
+			</svg>
+			<script type="text/javascript" src="js/try_quick.js"></script>
+
+		</div></center>
+		
+
+	</body>
+</html>
